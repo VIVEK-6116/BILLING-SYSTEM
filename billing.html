@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Billing System</title>
+
+<style>
+
+#loginPage{
+
+    width:350px;
+    margin:100px auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+    text-align:center;
+
+}
+
+#loginPage input{
+
+    width:250px;
+    padding:10px;
+    font-size:16px;
+
+}
+
+#loginPage button{
+
+    width:120px;
+    background:green;
+    color:white;
+    padding:10px;
+    border:none;
+    border-radius:5px;
+
+}
+.buttons{
+    text-align:center;
+    margin-top:20px;
+    margin-bottom:30px;
+}
+
+.buttons button{
+    width:150px;
+    height:50px;
+    margin:10px;
+    font-size:18px;
+}
+
+.footer{
+    width:100%;
+    background:brown;
+    color:white;
+    text-align:center;
+    padding:30px;
+    margin-top:30px;
+    border-radius:10px;
+    box-sizing:border-box;
+}
+
+.footer h1{
+    font-size:45px;
+    margin:0;
+    letter-spacing:3px;
+}
+
+.footer p{
+    font-size:26px;
+    margin-top:10px;
+    color:#FFD700;
+}
+
+
+
+body{
+    font-family:Georgia;
+    background:#f2f2f2;
+    margin:20px;
+}
+
+header{
+    background:brown;
+    color:white;
+    padding:15px;
+    display:flex;
+    align-items:center;
+}
+
+header img{
+    width:120px;
+    height:70px;
+    margin-right:500px;
+}
+
+.products{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.card{
+    background:white;
+    width:200px;
+    text-align:center;
+    border-radius:10px;
+    padding:15px;
+    box-shadow:0 0 8px gray;
+}
+
+.card img{
+    width:150px;
+    height:150px;
+}
+
+button{
+    background:green;
+    color:white;
+    border:none;
+    padding:10px;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+table{
+    width:100%;
+    margin-top:30px;
+    border-collapse:collapse;
+    background:white;
+}
+
+table,th,td{
+    border:1px solid black;
+}
+
+th,td{
+    padding:10px;
+    text-align:center;
+}
+
+h2,h3{
+    text-align:center;
+}
+</style>
+
+</head>
+
+
+<body>
+
+<!-- Login Page -->
+<div id="loginPage">
+
+    <h1>SHREE ENTERPRISES</h1>
+
+    <img src="https://th.bing.com/th/id/OIP.axZGmgRszjVffqwoRHBg0QHaHa?w=198&h=198&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+         width="120" height="120">
+
+    <br><br>
+
+    <input type="text" id="username" placeholder="Enter Username">
+
+    <br><br>
+
+    <input type="password" id="password" placeholder="Enter Password">
+
+    <br><br>
+
+    <button onclick="login()">Login</button>
+
+    <p id="msg" style="color:red;"></p>
+
+</div>
+
+<!-- Billing Page -->
+<div id="billingPage" style="display:none;">
+
+<header>
+
+    <img src="https://th.bing.com/th/id/OIP.axZGmgRszjVffqwoRHBg0QHaHa?w=198&h=198&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Logo">
+
+    <div>
+        <h1>SHREE ENTERPRISES</h1>
+           </div>
+
+</header>
+<h2>OUR PRODUCTS</h2>
+
+
+
+
+
+
+
+
+
+
+<div class="products">
+
+<div class="card">
+    <img src=https://th.bing.com/th/id/OIP.W0fJPxyo521T9yCuFHKVDAHaJ4?w=208&h=277&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3>
+    <h3>LASSI(लस्सी)
+1.PINEAPPLE<br>
+2.STRAWBERRY<br>
+</h3>
+    <p>₹30</p>
+
+    <button onclick="decrease('qty1')">-</button>
+
+    <input type="text" id="qty1" value="1" size="1" readonly>
+
+    <button onclick="increase('qty1')">+</button>
+    <br><br>
+
+    <button onclick="addItem('Milk',30,'qty1')">Add to Cart</button>
+</div>
+<div class="card">
+    <img src=https://i0.wp.com/delishbite.in/wp-content/uploads/2023/07/Blog_1.jpg?resize=768%2C960&ssl=1>
+    <h3>BUTTERMILK(ताक)</h3>
+    <p>₹40</p>
+
+    <button onclick="decrease('qty2')">-</button>
+
+    <input type="text" id="qty2" value="1" size="1" readonly>
+
+    <button onclick="increase('qty2')">+</button>
+    <br><br>
+
+    <button onclick="addItem('Bread',40,'qty2')">Add to Cart</button>
+</div>
+
+
+<div class="card">
+    <img src=https://th.bing.com/th/id/OIP.GwCH0qwsxgwHkoCsCOcHTwHaHa?w=159&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3>
+    <h3>KULFI(कुल्फी)
+1.MAVA<br>
+2.PISTA<br>
+</h3>
+    <p>₹60</p>
+
+    <button onclick="decrease('qty3')">-</button>
+
+    <input type="text" id="qty3" value="1" size="1" readonly>
+
+    <button onclick="increase('qty3')">+</button>
+    <br><br>
+
+    <button onclick="addItem('Rice',60,'qty3')">Add to Cart</button>
+</div>
+
+
+
+<div class="card">
+    <img src=https://th.bing.com/th/id/OIP.1diuXmw-UNARTn423uiPFAHaE8?w=275&h=183&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3>
+    <h4>PEDHA(पेढा)
+1.MALAIPEDHA<br>
+2.KANDIPEDHA<br>
+</h3>
+    <p>₹60</p>
+
+    <button onclick="decrease('qty3')">-</button>
+
+    <input type="text" id="qty3" value="1" size="1" readonly>
+
+    <button onclick="increase('qty3')">+</button>
+    <br><br>
+
+    <button onclick="addItem('Rice',60,'qty3')">Add to Cart</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="card">
+    <img src=https://th.bing.com/th/id/OTT.1B2EA6ED900C4E9D711082404DE5A5FA?w=297&h=200&o=6&pid=Trans>
+    <h3>COW GHEE</h3>
+    <p>₹50</p>
+
+    <button onclick="decrease('qty4')">-</button>
+
+    <input type="text" id="qty4" value="1" size="1" readonly>
+
+    <button onclick="increase('qty4')">+</button>
+    <br><br>
+
+    <button onclick="addItem('Sugar',50,'qty4')">Add to Cart</button>
+</div>
+
+
+
+
+
+
+
+
+
+<h2></h2><br>
+<p><b>Date & Time:</b> <span id="date"></span></p>
+
+<table id="cart">
+<tr>
+<th>Product</th>
+<th>Price</th>
+<th>Qty</th>
+<th>Total</th>
+<th>Action</th>
+</tr>
+</table>
+
+<h2>Total Bill : ₹<span id="grand">0</span></h2>
+
+<button onclick="clearCart()">Clear Cart</button>
+<button onclick="window.print()">Print Bill</button>
+
+
+
+
+<footer class="footer">
+    <h1>🙏 THANK YOU FOR SHOPPING 🙏</h1>
+<p>🌸 Visit Again! Have a Nice Day 🌸</p>
+<h1> KOPARGAON.MAHARASHTRA<h1><br>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function login(){
+
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    if(user=="admin" && pass=="1234"){
+
+        document.getElementById("loginPage").style.display="none";
+
+        document.getElementById("billingPage").style.display="block";
+
+    }
+    else{
+
+        document.getElementById("msg").innerHTML="Invalid Username or Password";
+
+    }
+
+}
+
+let grand = 0;
+
+// Date & Time
+document.getElementById("date").innerHTML =
+new Date().toLocaleString();
+
+function plus(id){
+    let q=document.getElementById(id);
+    q.value=parseInt(q.value)+1;
+}
+
+function minus(id){
+    let q=document.getElementById(id);
+
+    if(parseInt(q.value)>1){
+        q.value=parseInt(q.value)-1;
+    }
+}
+
+function addItem(name,price,id){
+
+    let qty=parseInt(document.getElementById(id).value);
+
+    let total=qty*price;
+
+    grand+=total;
+
+    let table=document.getElementById("cart");
+
+    let row=table.insertRow();
+
+    row.insertCell(0).innerHTML=name;
+    row.insertCell(1).innerHTML="₹"+price;
+    row.insertCell(2).innerHTML=qty;
+    row.insertCell(3).innerHTML="₹"+total;
+
+    let btn=row.insertCell(4);
+
+    btn.innerHTML="<button onclick='removeItem(this,"+total+")'>Remove</button>";
+
+    document.getElementById("grand").innerHTML=grand;
+
+    document.getElementById(id).value=1;
+
+}
+
+function removeItem(button,total){
+
+    let row=button.parentNode.parentNode;
+
+    row.remove();
+
+    grand-=total;
+
+    document.getElementById("grand").innerHTML=grand;
+
+}
+
+function clearCart(){
+
+    let table=document.getElementById("cart");
+
+    while(table.rows.length>1){
+        table.deleteRow(1);
+    }
+
+    grand=0;
+
+    document.getElementById("grand").innerHTML=0;
+
+}
+
+</script>
+...
+</script>
+
+
+</body>
+</html>
+</body>
+</html>
